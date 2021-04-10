@@ -27,7 +27,7 @@ type Token struct {
 	Tags *map[string]string `json:"tags,omitempty"`
 	// The last time the token was used. Time in ms since epoch.
 	LastUse *string `json:"lastUse,omitempty"`
-	Uses *string `json:"uses,omitempty"`
+	Uses    *string `json:"uses,omitempty"`
 }
 
 // NewToken instantiates a new Token object
@@ -297,5 +297,3 @@ func (v *NullableToken) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
