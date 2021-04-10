@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.4 breezy-leafy
+ * API version: 1.3.5 everlasting-ashanti
  * Contact: dev@lab5e.com
  */
 
@@ -17,14 +17,14 @@ import (
 
 // UserProfile Your user profile. You can change the contents of the user profile via the log in service you are using.
 type UserProfile struct {
-	UserId      *string `json:"userId,omitempty"`
-	Email       *string `json:"email,omitempty"`
-	AvatarUrl   *string `json:"avatarUrl,omitempty"`
-	Name        *string `json:"name,omitempty"`
-	ProfileUrl  *string `json:"profileUrl,omitempty"`
+	UserId *string `json:"userId,omitempty"`
+	Email *string `json:"email,omitempty"`
+	AvatarUrl *string `json:"avatarUrl,omitempty"`
+	Name *string `json:"name,omitempty"`
+	ProfileUrl *string `json:"profileUrl,omitempty"`
 	GithubLogin *string `json:"githubLogin,omitempty"`
-	Provider    *string `json:"provider,omitempty"`
-	LogoutUrl   *string `json:"logoutUrl,omitempty"`
+	Provider *string `json:"provider,omitempty"`
+	LogoutUrl *string `json:"logoutUrl,omitempty"`
 }
 
 // NewUserProfile instantiates a new UserProfile object
@@ -364,3 +364,5 @@ func (v *NullableUserProfile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.4 breezy-leafy
+ * API version: 1.3.5 everlasting-ashanti
  * Contact: dev@lab5e.com
  */
 

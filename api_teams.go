@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.4 breezy-leafy
+ * API version: 1.3.5 everlasting-ashanti
  * Contact: dev@lab5e.com
  */
 
@@ -29,9 +29,9 @@ var (
 type TeamsApiService service
 
 type ApiUserAcceptInviteRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	body       *AcceptInviteRequest
+	body *AcceptInviteRequest
 }
 
 func (r ApiUserAcceptInviteRequest) Body(body AcceptInviteRequest) ApiUserAcceptInviteRequest {
@@ -52,7 +52,7 @@ func (r ApiUserAcceptInviteRequest) Execute() (Team, *_nethttp.Response, error) 
 func (a *TeamsApiService) UserAcceptInvite(ctx _context.Context) ApiUserAcceptInviteRequest {
 	return ApiUserAcceptInviteRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -189,13 +189,13 @@ func (a *TeamsApiService) UserAcceptInviteExecute(r ApiUserAcceptInviteRequest) 
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -212,9 +212,9 @@ func (a *TeamsApiService) UserAcceptInviteExecute(r ApiUserAcceptInviteRequest) 
 }
 
 type ApiUserCreateTeamRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	body       *Team
+	body *Team
 }
 
 func (r ApiUserCreateTeamRequest) Body(body Team) ApiUserCreateTeamRequest {
@@ -234,7 +234,7 @@ func (r ApiUserCreateTeamRequest) Execute() (Team, *_nethttp.Response, error) {
 func (a *TeamsApiService) UserCreateTeam(ctx _context.Context) ApiUserCreateTeamRequest {
 	return ApiUserCreateTeamRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -371,13 +371,13 @@ func (a *TeamsApiService) UserCreateTeamExecute(r ApiUserCreateTeamRequest) (Tea
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -394,11 +394,12 @@ func (a *TeamsApiService) UserCreateTeamExecute(r ApiUserCreateTeamRequest) (Tea
 }
 
 type ApiUserDeleteInviteRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
-	code       string
+	teamId string
+	code string
 }
+
 
 func (r ApiUserDeleteInviteRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.UserDeleteInviteExecute(r)
@@ -415,9 +416,9 @@ func (r ApiUserDeleteInviteRequest) Execute() (map[string]interface{}, *_nethttp
 func (a *TeamsApiService) UserDeleteInvite(ctx _context.Context, teamId string, code string) ApiUserDeleteInviteRequest {
 	return ApiUserDeleteInviteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
-		code:       code,
+		ctx: ctx,
+		teamId: teamId,
+		code: code,
 	}
 }
 
@@ -551,13 +552,13 @@ func (a *TeamsApiService) UserDeleteInviteExecute(r ApiUserDeleteInviteRequest) 
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -574,11 +575,12 @@ func (a *TeamsApiService) UserDeleteInviteExecute(r ApiUserDeleteInviteRequest) 
 }
 
 type ApiUserDeleteMemberRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
-	userId     string
+	teamId string
+	userId string
 }
+
 
 func (r ApiUserDeleteMemberRequest) Execute() (Member, *_nethttp.Response, error) {
 	return r.ApiService.UserDeleteMemberExecute(r)
@@ -595,9 +597,9 @@ func (r ApiUserDeleteMemberRequest) Execute() (Member, *_nethttp.Response, error
 func (a *TeamsApiService) UserDeleteMember(ctx _context.Context, teamId string, userId string) ApiUserDeleteMemberRequest {
 	return ApiUserDeleteMemberRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
-		userId:     userId,
+		ctx: ctx,
+		teamId: teamId,
+		userId: userId,
 	}
 }
 
@@ -731,13 +733,13 @@ func (a *TeamsApiService) UserDeleteMemberExecute(r ApiUserDeleteMemberRequest) 
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -754,10 +756,11 @@ func (a *TeamsApiService) UserDeleteMemberExecute(r ApiUserDeleteMemberRequest) 
 }
 
 type ApiUserDeleteTeamRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
+	teamId string
 }
+
 
 func (r ApiUserDeleteTeamRequest) Execute() (Team, *_nethttp.Response, error) {
 	return r.ApiService.UserDeleteTeamExecute(r)
@@ -773,8 +776,8 @@ func (r ApiUserDeleteTeamRequest) Execute() (Team, *_nethttp.Response, error) {
 func (a *TeamsApiService) UserDeleteTeam(ctx _context.Context, teamId string) ApiUserDeleteTeamRequest {
 	return ApiUserDeleteTeamRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
+		ctx: ctx,
+		teamId: teamId,
 	}
 }
 
@@ -907,13 +910,13 @@ func (a *TeamsApiService) UserDeleteTeamExecute(r ApiUserDeleteTeamRequest) (Tea
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -930,10 +933,10 @@ func (a *TeamsApiService) UserDeleteTeamExecute(r ApiUserDeleteTeamRequest) (Tea
 }
 
 type ApiUserGenerateInviteRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
-	body       *InviteRequest
+	teamId string
+	body *InviteRequest
 }
 
 func (r ApiUserGenerateInviteRequest) Body(body InviteRequest) ApiUserGenerateInviteRequest {
@@ -955,8 +958,8 @@ func (r ApiUserGenerateInviteRequest) Execute() (Invite, *_nethttp.Response, err
 func (a *TeamsApiService) UserGenerateInvite(ctx _context.Context, teamId string) ApiUserGenerateInviteRequest {
 	return ApiUserGenerateInviteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
+		ctx: ctx,
+		teamId: teamId,
 	}
 }
 
@@ -1094,13 +1097,13 @@ func (a *TeamsApiService) UserGenerateInviteExecute(r ApiUserGenerateInviteReque
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1117,10 +1120,11 @@ func (a *TeamsApiService) UserGenerateInviteExecute(r ApiUserGenerateInviteReque
 }
 
 type ApiUserListInvitesRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
+	teamId string
 }
+
 
 func (r ApiUserListInvitesRequest) Execute() (InviteList, *_nethttp.Response, error) {
 	return r.ApiService.UserListInvitesExecute(r)
@@ -1136,8 +1140,8 @@ func (r ApiUserListInvitesRequest) Execute() (InviteList, *_nethttp.Response, er
 func (a *TeamsApiService) UserListInvites(ctx _context.Context, teamId string) ApiUserListInvitesRequest {
 	return ApiUserListInvitesRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
+		ctx: ctx,
+		teamId: teamId,
 	}
 }
 
@@ -1270,13 +1274,13 @@ func (a *TeamsApiService) UserListInvitesExecute(r ApiUserListInvitesRequest) (I
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1293,9 +1297,10 @@ func (a *TeamsApiService) UserListInvitesExecute(r ApiUserListInvitesRequest) (I
 }
 
 type ApiUserListTeamsRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
 }
+
 
 func (r ApiUserListTeamsRequest) Execute() (TeamList, *_nethttp.Response, error) {
 	return r.ApiService.UserListTeamsExecute(r)
@@ -1310,7 +1315,7 @@ func (r ApiUserListTeamsRequest) Execute() (TeamList, *_nethttp.Response, error)
 func (a *TeamsApiService) UserListTeams(ctx _context.Context) ApiUserListTeamsRequest {
 	return ApiUserListTeamsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -1442,13 +1447,13 @@ func (a *TeamsApiService) UserListTeamsExecute(r ApiUserListTeamsRequest) (TeamL
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1465,11 +1470,12 @@ func (a *TeamsApiService) UserListTeamsExecute(r ApiUserListTeamsRequest) (TeamL
 }
 
 type ApiUserRetrieveInviteRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
-	code       string
+	teamId string
+	code string
 }
+
 
 func (r ApiUserRetrieveInviteRequest) Execute() (Invite, *_nethttp.Response, error) {
 	return r.ApiService.UserRetrieveInviteExecute(r)
@@ -1486,9 +1492,9 @@ func (r ApiUserRetrieveInviteRequest) Execute() (Invite, *_nethttp.Response, err
 func (a *TeamsApiService) UserRetrieveInvite(ctx _context.Context, teamId string, code string) ApiUserRetrieveInviteRequest {
 	return ApiUserRetrieveInviteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
-		code:       code,
+		ctx: ctx,
+		teamId: teamId,
+		code: code,
 	}
 }
 
@@ -1622,13 +1628,13 @@ func (a *TeamsApiService) UserRetrieveInviteExecute(r ApiUserRetrieveInviteReque
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1645,11 +1651,12 @@ func (a *TeamsApiService) UserRetrieveInviteExecute(r ApiUserRetrieveInviteReque
 }
 
 type ApiUserRetrieveMemberRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
-	userId     string
+	teamId string
+	userId string
 }
+
 
 func (r ApiUserRetrieveMemberRequest) Execute() (Member, *_nethttp.Response, error) {
 	return r.ApiService.UserRetrieveMemberExecute(r)
@@ -1665,9 +1672,9 @@ func (r ApiUserRetrieveMemberRequest) Execute() (Member, *_nethttp.Response, err
 func (a *TeamsApiService) UserRetrieveMember(ctx _context.Context, teamId string, userId string) ApiUserRetrieveMemberRequest {
 	return ApiUserRetrieveMemberRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
-		userId:     userId,
+		ctx: ctx,
+		teamId: teamId,
+		userId: userId,
 	}
 }
 
@@ -1801,13 +1808,13 @@ func (a *TeamsApiService) UserRetrieveMemberExecute(r ApiUserRetrieveMemberReque
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1824,10 +1831,11 @@ func (a *TeamsApiService) UserRetrieveMemberExecute(r ApiUserRetrieveMemberReque
 }
 
 type ApiUserRetrieveTeamRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
+	teamId string
 }
+
 
 func (r ApiUserRetrieveTeamRequest) Execute() (Team, *_nethttp.Response, error) {
 	return r.ApiService.UserRetrieveTeamExecute(r)
@@ -1842,8 +1850,8 @@ func (r ApiUserRetrieveTeamRequest) Execute() (Team, *_nethttp.Response, error) 
 func (a *TeamsApiService) UserRetrieveTeam(ctx _context.Context, teamId string) ApiUserRetrieveTeamRequest {
 	return ApiUserRetrieveTeamRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
+		ctx: ctx,
+		teamId: teamId,
 	}
 }
 
@@ -1976,13 +1984,13 @@ func (a *TeamsApiService) UserRetrieveTeamExecute(r ApiUserRetrieveTeamRequest) 
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1999,10 +2007,11 @@ func (a *TeamsApiService) UserRetrieveTeamExecute(r ApiUserRetrieveTeamRequest) 
 }
 
 type ApiUserRetrieveTeamMembersRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
+	teamId string
 }
+
 
 func (r ApiUserRetrieveTeamMembersRequest) Execute() (MemberList, *_nethttp.Response, error) {
 	return r.ApiService.UserRetrieveTeamMembersExecute(r)
@@ -2017,8 +2026,8 @@ func (r ApiUserRetrieveTeamMembersRequest) Execute() (MemberList, *_nethttp.Resp
 func (a *TeamsApiService) UserRetrieveTeamMembers(ctx _context.Context, teamId string) ApiUserRetrieveTeamMembersRequest {
 	return ApiUserRetrieveTeamMembersRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
+		ctx: ctx,
+		teamId: teamId,
 	}
 }
 
@@ -2151,13 +2160,13 @@ func (a *TeamsApiService) UserRetrieveTeamMembersExecute(r ApiUserRetrieveTeamMe
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2174,11 +2183,11 @@ func (a *TeamsApiService) UserRetrieveTeamMembersExecute(r ApiUserRetrieveTeamMe
 }
 
 type ApiUserUpdateMemberRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
-	userId     string
-	body       *Member
+	teamId string
+	userId string
+	body *Member
 }
 
 func (r ApiUserUpdateMemberRequest) Body(body Member) ApiUserUpdateMemberRequest {
@@ -2201,9 +2210,9 @@ func (r ApiUserUpdateMemberRequest) Execute() (Member, *_nethttp.Response, error
 func (a *TeamsApiService) UserUpdateMember(ctx _context.Context, teamId string, userId string) ApiUserUpdateMemberRequest {
 	return ApiUserUpdateMemberRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
-		userId:     userId,
+		ctx: ctx,
+		teamId: teamId,
+		userId: userId,
 	}
 }
 
@@ -2342,13 +2351,13 @@ func (a *TeamsApiService) UserUpdateMemberExecute(r ApiUserUpdateMemberRequest) 
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2365,10 +2374,10 @@ func (a *TeamsApiService) UserUpdateMemberExecute(r ApiUserUpdateMemberRequest) 
 }
 
 type ApiUserUpdateTeamRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TeamsApiService
-	teamId     string
-	body       *Team
+	teamId string
+	body *Team
 }
 
 func (r ApiUserUpdateTeamRequest) Body(body Team) ApiUserUpdateTeamRequest {
@@ -2390,8 +2399,8 @@ func (r ApiUserUpdateTeamRequest) Execute() (Team, *_nethttp.Response, error) {
 func (a *TeamsApiService) UserUpdateTeam(ctx _context.Context, teamId string) ApiUserUpdateTeamRequest {
 	return ApiUserUpdateTeamRequest{
 		ApiService: a,
-		ctx:        ctx,
-		teamId:     teamId,
+		ctx: ctx,
+		teamId: teamId,
 	}
 }
 
@@ -2529,13 +2538,13 @@ func (a *TeamsApiService) UserUpdateTeamExecute(r ApiUserUpdateTeamRequest) (Tea
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

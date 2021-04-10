@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.4 breezy-leafy
+ * API version: 1.3.5 everlasting-ashanti
  * Contact: dev@lab5e.com
  */
 
@@ -28,9 +28,10 @@ var (
 type ProfileApiService service
 
 type ApiUserGetUserProfileRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *ProfileApiService
 }
+
 
 func (r ApiUserGetUserProfileRequest) Execute() (UserProfile, *_nethttp.Response, error) {
 	return r.ApiService.UserGetUserProfileExecute(r)
@@ -45,7 +46,7 @@ func (r ApiUserGetUserProfileRequest) Execute() (UserProfile, *_nethttp.Response
 func (a *ProfileApiService) UserGetUserProfile(ctx _context.Context) ApiUserGetUserProfileRequest {
 	return ApiUserGetUserProfileRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -177,13 +178,13 @@ func (a *ProfileApiService) UserGetUserProfileExecute(r ApiUserGetUserProfileReq
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
