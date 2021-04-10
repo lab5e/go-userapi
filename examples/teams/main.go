@@ -15,6 +15,7 @@ import (
 // Simple example that queries the teams. You can get an API token from the
 // "API Tokens" page at https://span.lab5e.com/
 func main() {
+
 	// Since nobody wants their credentials in checked-in code we'll use a
 	// command line parameter for the token.
 	token := ""
