@@ -27,23 +27,23 @@ var (
 // ProfileApiService ProfileApi service
 type ProfileApiService service
 
-type ApiUserGetUserProfileRequest struct {
+type ApiGetUserProfileRequest struct {
 	ctx        _context.Context
 	ApiService *ProfileApiService
 }
 
-func (r ApiUserGetUserProfileRequest) Execute() (UserProfile, *_nethttp.Response, error) {
-	return r.ApiService.UserGetUserProfileExecute(r)
+func (r ApiGetUserProfileRequest) Execute() (UserProfile, *_nethttp.Response, error) {
+	return r.ApiService.GetUserProfileExecute(r)
 }
 
 /*
- * UserGetUserProfile Logged in profile
+ * GetUserProfile Logged in profile
  * Show your user profile information
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiUserGetUserProfileRequest
+ * @return ApiGetUserProfileRequest
  */
-func (a *ProfileApiService) UserGetUserProfile(ctx _context.Context) ApiUserGetUserProfileRequest {
-	return ApiUserGetUserProfileRequest{
+func (a *ProfileApiService) GetUserProfile(ctx _context.Context) ApiGetUserProfileRequest {
+	return ApiGetUserProfileRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -53,7 +53,7 @@ func (a *ProfileApiService) UserGetUserProfile(ctx _context.Context) ApiUserGetU
  * Execute executes the request
  * @return UserProfile
  */
-func (a *ProfileApiService) UserGetUserProfileExecute(r ApiUserGetUserProfileRequest) (UserProfile, *_nethttp.Response, error) {
+func (a *ProfileApiService) GetUserProfileExecute(r ApiGetUserProfileRequest) (UserProfile, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *ProfileApiService) UserGetUserProfileExecute(r ApiUserGetUserProfileReq
 		localVarReturnValue  UserProfile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfileApiService.UserGetUserProfile")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfileApiService.GetUserProfile")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}

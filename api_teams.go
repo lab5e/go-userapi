@@ -28,29 +28,29 @@ var (
 // TeamsApiService TeamsApi service
 type TeamsApiService service
 
-type ApiUserAcceptInviteRequest struct {
+type ApiAcceptInviteRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	body       *AcceptInviteRequest
 }
 
-func (r ApiUserAcceptInviteRequest) Body(body AcceptInviteRequest) ApiUserAcceptInviteRequest {
+func (r ApiAcceptInviteRequest) Body(body AcceptInviteRequest) ApiAcceptInviteRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserAcceptInviteRequest) Execute() (Team, *_nethttp.Response, error) {
-	return r.ApiService.UserAcceptInviteExecute(r)
+func (r ApiAcceptInviteRequest) Execute() (Team, *_nethttp.Response, error) {
+	return r.ApiService.AcceptInviteExecute(r)
 }
 
 /*
- * UserAcceptInvite Accept invite
+ * AcceptInvite Accept invite
  * Accept an invite from another user. This will add the currently logged in user to the team as a regular memeber. When the invite is accepted it is removed from the team's invites and cannot be reused.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiUserAcceptInviteRequest
+ * @return ApiAcceptInviteRequest
  */
-func (a *TeamsApiService) UserAcceptInvite(ctx _context.Context) ApiUserAcceptInviteRequest {
-	return ApiUserAcceptInviteRequest{
+func (a *TeamsApiService) AcceptInvite(ctx _context.Context) ApiAcceptInviteRequest {
+	return ApiAcceptInviteRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -60,7 +60,7 @@ func (a *TeamsApiService) UserAcceptInvite(ctx _context.Context) ApiUserAcceptIn
  * Execute executes the request
  * @return Team
  */
-func (a *TeamsApiService) UserAcceptInviteExecute(r ApiUserAcceptInviteRequest) (Team, *_nethttp.Response, error) {
+func (a *TeamsApiService) AcceptInviteExecute(r ApiAcceptInviteRequest) (Team, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -70,7 +70,7 @@ func (a *TeamsApiService) UserAcceptInviteExecute(r ApiUserAcceptInviteRequest) 
 		localVarReturnValue  Team
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserAcceptInvite")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.AcceptInvite")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -211,28 +211,28 @@ func (a *TeamsApiService) UserAcceptInviteExecute(r ApiUserAcceptInviteRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserCreateTeamRequest struct {
+type ApiCreateTeamRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	body       *Team
 }
 
-func (r ApiUserCreateTeamRequest) Body(body Team) ApiUserCreateTeamRequest {
+func (r ApiCreateTeamRequest) Body(body Team) ApiCreateTeamRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserCreateTeamRequest) Execute() (Team, *_nethttp.Response, error) {
-	return r.ApiService.UserCreateTeamExecute(r)
+func (r ApiCreateTeamRequest) Execute() (Team, *_nethttp.Response, error) {
+	return r.ApiService.CreateTeamExecute(r)
 }
 
 /*
- * UserCreateTeam Create team
+ * CreateTeam Create team
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiUserCreateTeamRequest
+ * @return ApiCreateTeamRequest
  */
-func (a *TeamsApiService) UserCreateTeam(ctx _context.Context) ApiUserCreateTeamRequest {
-	return ApiUserCreateTeamRequest{
+func (a *TeamsApiService) CreateTeam(ctx _context.Context) ApiCreateTeamRequest {
+	return ApiCreateTeamRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -242,7 +242,7 @@ func (a *TeamsApiService) UserCreateTeam(ctx _context.Context) ApiUserCreateTeam
  * Execute executes the request
  * @return Team
  */
-func (a *TeamsApiService) UserCreateTeamExecute(r ApiUserCreateTeamRequest) (Team, *_nethttp.Response, error) {
+func (a *TeamsApiService) CreateTeamExecute(r ApiCreateTeamRequest) (Team, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -252,7 +252,7 @@ func (a *TeamsApiService) UserCreateTeamExecute(r ApiUserCreateTeamRequest) (Tea
 		localVarReturnValue  Team
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserCreateTeam")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.CreateTeam")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -393,27 +393,27 @@ func (a *TeamsApiService) UserCreateTeamExecute(r ApiUserCreateTeamRequest) (Tea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteInviteRequest struct {
+type ApiDeleteInviteRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 	code       string
 }
 
-func (r ApiUserDeleteInviteRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
-	return r.ApiService.UserDeleteInviteExecute(r)
+func (r ApiDeleteInviteRequest) Execute() (DeleteInviteResponse, *_nethttp.Response, error) {
+	return r.ApiService.DeleteInviteExecute(r)
 }
 
 /*
- * UserDeleteInvite Delete invite
+ * DeleteInvite Delete invite
  * Delete an invite created earlier. You must be an administrator of the team to perform this action
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
  * @param code The invite code.
- * @return ApiUserDeleteInviteRequest
+ * @return ApiDeleteInviteRequest
  */
-func (a *TeamsApiService) UserDeleteInvite(ctx _context.Context, teamId string, code string) ApiUserDeleteInviteRequest {
-	return ApiUserDeleteInviteRequest{
+func (a *TeamsApiService) DeleteInvite(ctx _context.Context, teamId string, code string) ApiDeleteInviteRequest {
+	return ApiDeleteInviteRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -423,19 +423,19 @@ func (a *TeamsApiService) UserDeleteInvite(ctx _context.Context, teamId string, 
 
 /*
  * Execute executes the request
- * @return map[string]interface{}
+ * @return DeleteInviteResponse
  */
-func (a *TeamsApiService) UserDeleteInviteExecute(r ApiUserDeleteInviteRequest) (map[string]interface{}, *_nethttp.Response, error) {
+func (a *TeamsApiService) DeleteInviteExecute(r ApiDeleteInviteRequest) (DeleteInviteResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  DeleteInviteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserDeleteInvite")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.DeleteInvite")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -573,27 +573,27 @@ func (a *TeamsApiService) UserDeleteInviteExecute(r ApiUserDeleteInviteRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteMemberRequest struct {
+type ApiDeleteMemberRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 	userId     string
 }
 
-func (r ApiUserDeleteMemberRequest) Execute() (Member, *_nethttp.Response, error) {
-	return r.ApiService.UserDeleteMemberExecute(r)
+func (r ApiDeleteMemberRequest) Execute() (Member, *_nethttp.Response, error) {
+	return r.ApiService.DeleteMemberExecute(r)
 }
 
 /*
- * UserDeleteMember Remove member
+ * DeleteMember Remove member
  * Remove a member from the team. You must be an administrator to do this. You can't remove yourself from the team.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
  * @param userId The user ID
- * @return ApiUserDeleteMemberRequest
+ * @return ApiDeleteMemberRequest
  */
-func (a *TeamsApiService) UserDeleteMember(ctx _context.Context, teamId string, userId string) ApiUserDeleteMemberRequest {
-	return ApiUserDeleteMemberRequest{
+func (a *TeamsApiService) DeleteMember(ctx _context.Context, teamId string, userId string) ApiDeleteMemberRequest {
+	return ApiDeleteMemberRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -605,7 +605,7 @@ func (a *TeamsApiService) UserDeleteMember(ctx _context.Context, teamId string, 
  * Execute executes the request
  * @return Member
  */
-func (a *TeamsApiService) UserDeleteMemberExecute(r ApiUserDeleteMemberRequest) (Member, *_nethttp.Response, error) {
+func (a *TeamsApiService) DeleteMemberExecute(r ApiDeleteMemberRequest) (Member, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -615,7 +615,7 @@ func (a *TeamsApiService) UserDeleteMemberExecute(r ApiUserDeleteMemberRequest) 
 		localVarReturnValue  Member
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserDeleteMember")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.DeleteMember")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -753,25 +753,25 @@ func (a *TeamsApiService) UserDeleteMemberExecute(r ApiUserDeleteMemberRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteTeamRequest struct {
+type ApiDeleteTeamRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 }
 
-func (r ApiUserDeleteTeamRequest) Execute() (Team, *_nethttp.Response, error) {
-	return r.ApiService.UserDeleteTeamExecute(r)
+func (r ApiDeleteTeamRequest) Execute() (Team, *_nethttp.Response, error) {
+	return r.ApiService.DeleteTeamExecute(r)
 }
 
 /*
- * UserDeleteTeam Remove team
+ * DeleteTeam Remove team
  * Update the team. You must be an administrator of the team to edit it.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
- * @return ApiUserDeleteTeamRequest
+ * @return ApiDeleteTeamRequest
  */
-func (a *TeamsApiService) UserDeleteTeam(ctx _context.Context, teamId string) ApiUserDeleteTeamRequest {
-	return ApiUserDeleteTeamRequest{
+func (a *TeamsApiService) DeleteTeam(ctx _context.Context, teamId string) ApiDeleteTeamRequest {
+	return ApiDeleteTeamRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -782,7 +782,7 @@ func (a *TeamsApiService) UserDeleteTeam(ctx _context.Context, teamId string) Ap
  * Execute executes the request
  * @return Team
  */
-func (a *TeamsApiService) UserDeleteTeamExecute(r ApiUserDeleteTeamRequest) (Team, *_nethttp.Response, error) {
+func (a *TeamsApiService) DeleteTeamExecute(r ApiDeleteTeamRequest) (Team, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -792,7 +792,7 @@ func (a *TeamsApiService) UserDeleteTeamExecute(r ApiUserDeleteTeamRequest) (Tea
 		localVarReturnValue  Team
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserDeleteTeam")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.DeleteTeam")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -929,31 +929,31 @@ func (a *TeamsApiService) UserDeleteTeamExecute(r ApiUserDeleteTeamRequest) (Tea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserGenerateInviteRequest struct {
+type ApiGenerateInviteRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 	body       *InviteRequest
 }
 
-func (r ApiUserGenerateInviteRequest) Body(body InviteRequest) ApiUserGenerateInviteRequest {
+func (r ApiGenerateInviteRequest) Body(body InviteRequest) ApiGenerateInviteRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserGenerateInviteRequest) Execute() (Invite, *_nethttp.Response, error) {
-	return r.ApiService.UserGenerateInviteExecute(r)
+func (r ApiGenerateInviteRequest) Execute() (Invite, *_nethttp.Response, error) {
+	return r.ApiService.GenerateInviteExecute(r)
 }
 
 /*
- * UserGenerateInvite Generate invite
+ * GenerateInvite Generate invite
  * Update the team. You must be an administrator of the team to edit it.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
- * @return ApiUserGenerateInviteRequest
+ * @return ApiGenerateInviteRequest
  */
-func (a *TeamsApiService) UserGenerateInvite(ctx _context.Context, teamId string) ApiUserGenerateInviteRequest {
-	return ApiUserGenerateInviteRequest{
+func (a *TeamsApiService) GenerateInvite(ctx _context.Context, teamId string) ApiGenerateInviteRequest {
+	return ApiGenerateInviteRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -964,7 +964,7 @@ func (a *TeamsApiService) UserGenerateInvite(ctx _context.Context, teamId string
  * Execute executes the request
  * @return Invite
  */
-func (a *TeamsApiService) UserGenerateInviteExecute(r ApiUserGenerateInviteRequest) (Invite, *_nethttp.Response, error) {
+func (a *TeamsApiService) GenerateInviteExecute(r ApiGenerateInviteRequest) (Invite, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -974,7 +974,7 @@ func (a *TeamsApiService) UserGenerateInviteExecute(r ApiUserGenerateInviteReque
 		localVarReturnValue  Invite
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserGenerateInvite")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.GenerateInvite")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1116,25 +1116,25 @@ func (a *TeamsApiService) UserGenerateInviteExecute(r ApiUserGenerateInviteReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserListInvitesRequest struct {
+type ApiListInvitesRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 }
 
-func (r ApiUserListInvitesRequest) Execute() (InviteList, *_nethttp.Response, error) {
-	return r.ApiService.UserListInvitesExecute(r)
+func (r ApiListInvitesRequest) Execute() (InviteList, *_nethttp.Response, error) {
+	return r.ApiService.ListInvitesExecute(r)
 }
 
 /*
- * UserListInvites List invites
+ * ListInvites List invites
  * Update the team. You must be an administrator of the team to edit it.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
- * @return ApiUserListInvitesRequest
+ * @return ApiListInvitesRequest
  */
-func (a *TeamsApiService) UserListInvites(ctx _context.Context, teamId string) ApiUserListInvitesRequest {
-	return ApiUserListInvitesRequest{
+func (a *TeamsApiService) ListInvites(ctx _context.Context, teamId string) ApiListInvitesRequest {
+	return ApiListInvitesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -1145,7 +1145,7 @@ func (a *TeamsApiService) UserListInvites(ctx _context.Context, teamId string) A
  * Execute executes the request
  * @return InviteList
  */
-func (a *TeamsApiService) UserListInvitesExecute(r ApiUserListInvitesRequest) (InviteList, *_nethttp.Response, error) {
+func (a *TeamsApiService) ListInvitesExecute(r ApiListInvitesRequest) (InviteList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1155,7 +1155,7 @@ func (a *TeamsApiService) UserListInvitesExecute(r ApiUserListInvitesRequest) (I
 		localVarReturnValue  InviteList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserListInvites")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.ListInvites")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1292,23 +1292,23 @@ func (a *TeamsApiService) UserListInvitesExecute(r ApiUserListInvitesRequest) (I
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserListTeamsRequest struct {
+type ApiListTeamsRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 }
 
-func (r ApiUserListTeamsRequest) Execute() (TeamList, *_nethttp.Response, error) {
-	return r.ApiService.UserListTeamsExecute(r)
+func (r ApiListTeamsRequest) Execute() (TeamList, *_nethttp.Response, error) {
+	return r.ApiService.ListTeamsExecute(r)
 }
 
 /*
- * UserListTeams List teams
+ * ListTeams List teams
  * Update the team. You must be an administrator of the team to edit it.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiUserListTeamsRequest
+ * @return ApiListTeamsRequest
  */
-func (a *TeamsApiService) UserListTeams(ctx _context.Context) ApiUserListTeamsRequest {
-	return ApiUserListTeamsRequest{
+func (a *TeamsApiService) ListTeams(ctx _context.Context) ApiListTeamsRequest {
+	return ApiListTeamsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1318,7 +1318,7 @@ func (a *TeamsApiService) UserListTeams(ctx _context.Context) ApiUserListTeamsRe
  * Execute executes the request
  * @return TeamList
  */
-func (a *TeamsApiService) UserListTeamsExecute(r ApiUserListTeamsRequest) (TeamList, *_nethttp.Response, error) {
+func (a *TeamsApiService) ListTeamsExecute(r ApiListTeamsRequest) (TeamList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1328,7 +1328,7 @@ func (a *TeamsApiService) UserListTeamsExecute(r ApiUserListTeamsRequest) (TeamL
 		localVarReturnValue  TeamList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserListTeams")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.ListTeams")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1464,27 +1464,27 @@ func (a *TeamsApiService) UserListTeamsExecute(r ApiUserListTeamsRequest) (TeamL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserRetrieveInviteRequest struct {
+type ApiRetrieveInviteRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 	code       string
 }
 
-func (r ApiUserRetrieveInviteRequest) Execute() (Invite, *_nethttp.Response, error) {
-	return r.ApiService.UserRetrieveInviteExecute(r)
+func (r ApiRetrieveInviteRequest) Execute() (Invite, *_nethttp.Response, error) {
+	return r.ApiService.RetrieveInviteExecute(r)
 }
 
 /*
- * UserRetrieveInvite Retrieve invite
+ * RetrieveInvite Retrieve invite
  * Read a single invite from the team's set of non-redeemed invites.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
  * @param code The invite code.
- * @return ApiUserRetrieveInviteRequest
+ * @return ApiRetrieveInviteRequest
  */
-func (a *TeamsApiService) UserRetrieveInvite(ctx _context.Context, teamId string, code string) ApiUserRetrieveInviteRequest {
-	return ApiUserRetrieveInviteRequest{
+func (a *TeamsApiService) RetrieveInvite(ctx _context.Context, teamId string, code string) ApiRetrieveInviteRequest {
+	return ApiRetrieveInviteRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -1496,7 +1496,7 @@ func (a *TeamsApiService) UserRetrieveInvite(ctx _context.Context, teamId string
  * Execute executes the request
  * @return Invite
  */
-func (a *TeamsApiService) UserRetrieveInviteExecute(r ApiUserRetrieveInviteRequest) (Invite, *_nethttp.Response, error) {
+func (a *TeamsApiService) RetrieveInviteExecute(r ApiRetrieveInviteRequest) (Invite, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1506,7 +1506,7 @@ func (a *TeamsApiService) UserRetrieveInviteExecute(r ApiUserRetrieveInviteReque
 		localVarReturnValue  Invite
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserRetrieveInvite")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.RetrieveInvite")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1644,26 +1644,26 @@ func (a *TeamsApiService) UserRetrieveInviteExecute(r ApiUserRetrieveInviteReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserRetrieveMemberRequest struct {
+type ApiRetrieveMemberRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 	userId     string
 }
 
-func (r ApiUserRetrieveMemberRequest) Execute() (Member, *_nethttp.Response, error) {
-	return r.ApiService.UserRetrieveMemberExecute(r)
+func (r ApiRetrieveMemberRequest) Execute() (Member, *_nethttp.Response, error) {
+	return r.ApiService.RetrieveMemberExecute(r)
 }
 
 /*
- * UserRetrieveMember Retrieve member
+ * RetrieveMember Retrieve member
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
  * @param userId The user ID
- * @return ApiUserRetrieveMemberRequest
+ * @return ApiRetrieveMemberRequest
  */
-func (a *TeamsApiService) UserRetrieveMember(ctx _context.Context, teamId string, userId string) ApiUserRetrieveMemberRequest {
-	return ApiUserRetrieveMemberRequest{
+func (a *TeamsApiService) RetrieveMember(ctx _context.Context, teamId string, userId string) ApiRetrieveMemberRequest {
+	return ApiRetrieveMemberRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -1675,7 +1675,7 @@ func (a *TeamsApiService) UserRetrieveMember(ctx _context.Context, teamId string
  * Execute executes the request
  * @return Member
  */
-func (a *TeamsApiService) UserRetrieveMemberExecute(r ApiUserRetrieveMemberRequest) (Member, *_nethttp.Response, error) {
+func (a *TeamsApiService) RetrieveMemberExecute(r ApiRetrieveMemberRequest) (Member, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1685,7 +1685,7 @@ func (a *TeamsApiService) UserRetrieveMemberExecute(r ApiUserRetrieveMemberReque
 		localVarReturnValue  Member
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserRetrieveMember")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.RetrieveMember")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1823,24 +1823,24 @@ func (a *TeamsApiService) UserRetrieveMemberExecute(r ApiUserRetrieveMemberReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserRetrieveTeamRequest struct {
+type ApiRetrieveTeamRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 }
 
-func (r ApiUserRetrieveTeamRequest) Execute() (Team, *_nethttp.Response, error) {
-	return r.ApiService.UserRetrieveTeamExecute(r)
+func (r ApiRetrieveTeamRequest) Execute() (Team, *_nethttp.Response, error) {
+	return r.ApiService.RetrieveTeamExecute(r)
 }
 
 /*
- * UserRetrieveTeam Retrieve team
+ * RetrieveTeam Retrieve team
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
- * @return ApiUserRetrieveTeamRequest
+ * @return ApiRetrieveTeamRequest
  */
-func (a *TeamsApiService) UserRetrieveTeam(ctx _context.Context, teamId string) ApiUserRetrieveTeamRequest {
-	return ApiUserRetrieveTeamRequest{
+func (a *TeamsApiService) RetrieveTeam(ctx _context.Context, teamId string) ApiRetrieveTeamRequest {
+	return ApiRetrieveTeamRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -1851,7 +1851,7 @@ func (a *TeamsApiService) UserRetrieveTeam(ctx _context.Context, teamId string) 
  * Execute executes the request
  * @return Team
  */
-func (a *TeamsApiService) UserRetrieveTeamExecute(r ApiUserRetrieveTeamRequest) (Team, *_nethttp.Response, error) {
+func (a *TeamsApiService) RetrieveTeamExecute(r ApiRetrieveTeamRequest) (Team, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1861,7 +1861,7 @@ func (a *TeamsApiService) UserRetrieveTeamExecute(r ApiUserRetrieveTeamRequest) 
 		localVarReturnValue  Team
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserRetrieveTeam")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.RetrieveTeam")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1998,24 +1998,24 @@ func (a *TeamsApiService) UserRetrieveTeamExecute(r ApiUserRetrieveTeamRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserRetrieveTeamMembersRequest struct {
+type ApiRetrieveTeamMembersRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 }
 
-func (r ApiUserRetrieveTeamMembersRequest) Execute() (MemberList, *_nethttp.Response, error) {
-	return r.ApiService.UserRetrieveTeamMembersExecute(r)
+func (r ApiRetrieveTeamMembersRequest) Execute() (MemberList, *_nethttp.Response, error) {
+	return r.ApiService.RetrieveTeamMembersExecute(r)
 }
 
 /*
- * UserRetrieveTeamMembers List members
+ * RetrieveTeamMembers List members
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId The team ID
- * @return ApiUserRetrieveTeamMembersRequest
+ * @return ApiRetrieveTeamMembersRequest
  */
-func (a *TeamsApiService) UserRetrieveTeamMembers(ctx _context.Context, teamId string) ApiUserRetrieveTeamMembersRequest {
-	return ApiUserRetrieveTeamMembersRequest{
+func (a *TeamsApiService) RetrieveTeamMembers(ctx _context.Context, teamId string) ApiRetrieveTeamMembersRequest {
+	return ApiRetrieveTeamMembersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -2026,7 +2026,7 @@ func (a *TeamsApiService) UserRetrieveTeamMembers(ctx _context.Context, teamId s
  * Execute executes the request
  * @return MemberList
  */
-func (a *TeamsApiService) UserRetrieveTeamMembersExecute(r ApiUserRetrieveTeamMembersRequest) (MemberList, *_nethttp.Response, error) {
+func (a *TeamsApiService) RetrieveTeamMembersExecute(r ApiRetrieveTeamMembersRequest) (MemberList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -2036,7 +2036,7 @@ func (a *TeamsApiService) UserRetrieveTeamMembersExecute(r ApiUserRetrieveTeamMe
 		localVarReturnValue  MemberList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserRetrieveTeamMembers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.RetrieveTeamMembers")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -2173,7 +2173,7 @@ func (a *TeamsApiService) UserRetrieveTeamMembersExecute(r ApiUserRetrieveTeamMe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserUpdateMemberRequest struct {
+type ApiUpdateMemberRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
@@ -2181,25 +2181,25 @@ type ApiUserUpdateMemberRequest struct {
 	body       *Member
 }
 
-func (r ApiUserUpdateMemberRequest) Body(body Member) ApiUserUpdateMemberRequest {
+func (r ApiUpdateMemberRequest) Body(body Member) ApiUpdateMemberRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserUpdateMemberRequest) Execute() (Member, *_nethttp.Response, error) {
-	return r.ApiService.UserUpdateMemberExecute(r)
+func (r ApiUpdateMemberRequest) Execute() (Member, *_nethttp.Response, error) {
+	return r.ApiService.UpdateMemberExecute(r)
 }
 
 /*
- * UserUpdateMember Update member
+ * UpdateMember Update member
  * You must be an administrator of the team to update member settings
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId
  * @param userId
- * @return ApiUserUpdateMemberRequest
+ * @return ApiUpdateMemberRequest
  */
-func (a *TeamsApiService) UserUpdateMember(ctx _context.Context, teamId string, userId string) ApiUserUpdateMemberRequest {
-	return ApiUserUpdateMemberRequest{
+func (a *TeamsApiService) UpdateMember(ctx _context.Context, teamId string, userId string) ApiUpdateMemberRequest {
+	return ApiUpdateMemberRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -2211,7 +2211,7 @@ func (a *TeamsApiService) UserUpdateMember(ctx _context.Context, teamId string, 
  * Execute executes the request
  * @return Member
  */
-func (a *TeamsApiService) UserUpdateMemberExecute(r ApiUserUpdateMemberRequest) (Member, *_nethttp.Response, error) {
+func (a *TeamsApiService) UpdateMemberExecute(r ApiUpdateMemberRequest) (Member, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -2221,7 +2221,7 @@ func (a *TeamsApiService) UserUpdateMemberExecute(r ApiUserUpdateMemberRequest) 
 		localVarReturnValue  Member
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserUpdateMember")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UpdateMember")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -2364,31 +2364,31 @@ func (a *TeamsApiService) UserUpdateMemberExecute(r ApiUserUpdateMemberRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserUpdateTeamRequest struct {
+type ApiUpdateTeamRequest struct {
 	ctx        _context.Context
 	ApiService *TeamsApiService
 	teamId     string
 	body       *Team
 }
 
-func (r ApiUserUpdateTeamRequest) Body(body Team) ApiUserUpdateTeamRequest {
+func (r ApiUpdateTeamRequest) Body(body Team) ApiUpdateTeamRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserUpdateTeamRequest) Execute() (Team, *_nethttp.Response, error) {
-	return r.ApiService.UserUpdateTeamExecute(r)
+func (r ApiUpdateTeamRequest) Execute() (Team, *_nethttp.Response, error) {
+	return r.ApiService.UpdateTeamExecute(r)
 }
 
 /*
- * UserUpdateTeam Update team
+ * UpdateTeam Update team
  * Update the team. You must be an administrator of the team to edit it.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param teamId
- * @return ApiUserUpdateTeamRequest
+ * @return ApiUpdateTeamRequest
  */
-func (a *TeamsApiService) UserUpdateTeam(ctx _context.Context, teamId string) ApiUserUpdateTeamRequest {
-	return ApiUserUpdateTeamRequest{
+func (a *TeamsApiService) UpdateTeam(ctx _context.Context, teamId string) ApiUpdateTeamRequest {
+	return ApiUpdateTeamRequest{
 		ApiService: a,
 		ctx:        ctx,
 		teamId:     teamId,
@@ -2399,7 +2399,7 @@ func (a *TeamsApiService) UserUpdateTeam(ctx _context.Context, teamId string) Ap
  * Execute executes the request
  * @return Team
  */
-func (a *TeamsApiService) UserUpdateTeamExecute(r ApiUserUpdateTeamRequest) (Team, *_nethttp.Response, error) {
+func (a *TeamsApiService) UpdateTeamExecute(r ApiUpdateTeamRequest) (Team, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -2409,7 +2409,7 @@ func (a *TeamsApiService) UserUpdateTeamExecute(r ApiUserUpdateTeamRequest) (Tea
 		localVarReturnValue  Team
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UserUpdateTeam")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamsApiService.UpdateTeam")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}

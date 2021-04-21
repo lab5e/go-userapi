@@ -1,0 +1,7 @@
+.gitignore
+git-push.sh
+go.mod
+go.sum
+.travis.yml
+.openapi-generator/
+

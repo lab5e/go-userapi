@@ -28,28 +28,28 @@ var (
 // TokensApiService TokensApi service
 type TokensApiService service
 
-type ApiUserCreateTokenRequest struct {
+type ApiCreateTokenRequest struct {
 	ctx        _context.Context
 	ApiService *TokensApiService
 	body       *Token
 }
 
-func (r ApiUserCreateTokenRequest) Body(body Token) ApiUserCreateTokenRequest {
+func (r ApiCreateTokenRequest) Body(body Token) ApiCreateTokenRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserCreateTokenRequest) Execute() (Token, *_nethttp.Response, error) {
-	return r.ApiService.UserCreateTokenExecute(r)
+func (r ApiCreateTokenRequest) Execute() (Token, *_nethttp.Response, error) {
+	return r.ApiService.CreateTokenExecute(r)
 }
 
 /*
- * UserCreateToken Create token
+ * CreateToken Create token
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiUserCreateTokenRequest
+ * @return ApiCreateTokenRequest
  */
-func (a *TokensApiService) UserCreateToken(ctx _context.Context) ApiUserCreateTokenRequest {
-	return ApiUserCreateTokenRequest{
+func (a *TokensApiService) CreateToken(ctx _context.Context) ApiCreateTokenRequest {
+	return ApiCreateTokenRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -59,7 +59,7 @@ func (a *TokensApiService) UserCreateToken(ctx _context.Context) ApiUserCreateTo
  * Execute executes the request
  * @return Token
  */
-func (a *TokensApiService) UserCreateTokenExecute(r ApiUserCreateTokenRequest) (Token, *_nethttp.Response, error) {
+func (a *TokensApiService) CreateTokenExecute(r ApiCreateTokenRequest) (Token, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *TokensApiService) UserCreateTokenExecute(r ApiUserCreateTokenRequest) (
 		localVarReturnValue  Token
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.UserCreateToken")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.CreateToken")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -210,24 +210,24 @@ func (a *TokensApiService) UserCreateTokenExecute(r ApiUserCreateTokenRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteTokenRequest struct {
+type ApiDeleteTokenRequest struct {
 	ctx        _context.Context
 	ApiService *TokensApiService
 	token      string
 }
 
-func (r ApiUserDeleteTokenRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
-	return r.ApiService.UserDeleteTokenExecute(r)
+func (r ApiDeleteTokenRequest) Execute() (DeleteTokenResponse, *_nethttp.Response, error) {
+	return r.ApiService.DeleteTokenExecute(r)
 }
 
 /*
- * UserDeleteToken Remove token
+ * DeleteToken Remove token
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param token The token to delete.
- * @return ApiUserDeleteTokenRequest
+ * @return ApiDeleteTokenRequest
  */
-func (a *TokensApiService) UserDeleteToken(ctx _context.Context, token string) ApiUserDeleteTokenRequest {
-	return ApiUserDeleteTokenRequest{
+func (a *TokensApiService) DeleteToken(ctx _context.Context, token string) ApiDeleteTokenRequest {
+	return ApiDeleteTokenRequest{
 		ApiService: a,
 		ctx:        ctx,
 		token:      token,
@@ -236,19 +236,19 @@ func (a *TokensApiService) UserDeleteToken(ctx _context.Context, token string) A
 
 /*
  * Execute executes the request
- * @return map[string]interface{}
+ * @return DeleteTokenResponse
  */
-func (a *TokensApiService) UserDeleteTokenExecute(r ApiUserDeleteTokenRequest) (map[string]interface{}, *_nethttp.Response, error) {
+func (a *TokensApiService) DeleteTokenExecute(r ApiDeleteTokenRequest) (DeleteTokenResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  DeleteTokenResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.UserDeleteToken")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.DeleteToken")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -385,22 +385,22 @@ func (a *TokensApiService) UserDeleteTokenExecute(r ApiUserDeleteTokenRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserListTokensRequest struct {
+type ApiListTokensRequest struct {
 	ctx        _context.Context
 	ApiService *TokensApiService
 }
 
-func (r ApiUserListTokensRequest) Execute() (TokenList, *_nethttp.Response, error) {
-	return r.ApiService.UserListTokensExecute(r)
+func (r ApiListTokensRequest) Execute() (TokenList, *_nethttp.Response, error) {
+	return r.ApiService.ListTokensExecute(r)
 }
 
 /*
- * UserListTokens List tokens
+ * ListTokens List tokens
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiUserListTokensRequest
+ * @return ApiListTokensRequest
  */
-func (a *TokensApiService) UserListTokens(ctx _context.Context) ApiUserListTokensRequest {
-	return ApiUserListTokensRequest{
+func (a *TokensApiService) ListTokens(ctx _context.Context) ApiListTokensRequest {
+	return ApiListTokensRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -410,7 +410,7 @@ func (a *TokensApiService) UserListTokens(ctx _context.Context) ApiUserListToken
  * Execute executes the request
  * @return TokenList
  */
-func (a *TokensApiService) UserListTokensExecute(r ApiUserListTokensRequest) (TokenList, *_nethttp.Response, error) {
+func (a *TokensApiService) ListTokensExecute(r ApiListTokensRequest) (TokenList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -420,7 +420,7 @@ func (a *TokensApiService) UserListTokensExecute(r ApiUserListTokensRequest) (To
 		localVarReturnValue  TokenList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.UserListTokens")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.ListTokens")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -556,24 +556,24 @@ func (a *TokensApiService) UserListTokensExecute(r ApiUserListTokensRequest) (To
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserRetrieveTokenRequest struct {
+type ApiRetrieveTokenRequest struct {
 	ctx        _context.Context
 	ApiService *TokensApiService
 	token      string
 }
 
-func (r ApiUserRetrieveTokenRequest) Execute() (Token, *_nethttp.Response, error) {
-	return r.ApiService.UserRetrieveTokenExecute(r)
+func (r ApiRetrieveTokenRequest) Execute() (Token, *_nethttp.Response, error) {
+	return r.ApiService.RetrieveTokenExecute(r)
 }
 
 /*
- * UserRetrieveToken Retrieve token
+ * RetrieveToken Retrieve token
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param token
- * @return ApiUserRetrieveTokenRequest
+ * @return ApiRetrieveTokenRequest
  */
-func (a *TokensApiService) UserRetrieveToken(ctx _context.Context, token string) ApiUserRetrieveTokenRequest {
-	return ApiUserRetrieveTokenRequest{
+func (a *TokensApiService) RetrieveToken(ctx _context.Context, token string) ApiRetrieveTokenRequest {
+	return ApiRetrieveTokenRequest{
 		ApiService: a,
 		ctx:        ctx,
 		token:      token,
@@ -584,7 +584,7 @@ func (a *TokensApiService) UserRetrieveToken(ctx _context.Context, token string)
  * Execute executes the request
  * @return Token
  */
-func (a *TokensApiService) UserRetrieveTokenExecute(r ApiUserRetrieveTokenRequest) (Token, *_nethttp.Response, error) {
+func (a *TokensApiService) RetrieveTokenExecute(r ApiRetrieveTokenRequest) (Token, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -594,7 +594,7 @@ func (a *TokensApiService) UserRetrieveTokenExecute(r ApiUserRetrieveTokenReques
 		localVarReturnValue  Token
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.UserRetrieveToken")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.RetrieveToken")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -731,30 +731,30 @@ func (a *TokensApiService) UserRetrieveTokenExecute(r ApiUserRetrieveTokenReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserUpdateTokenRequest struct {
+type ApiUpdateTokenRequest struct {
 	ctx        _context.Context
 	ApiService *TokensApiService
 	token      string
 	body       *Token
 }
 
-func (r ApiUserUpdateTokenRequest) Body(body Token) ApiUserUpdateTokenRequest {
+func (r ApiUpdateTokenRequest) Body(body Token) ApiUpdateTokenRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserUpdateTokenRequest) Execute() (Token, *_nethttp.Response, error) {
-	return r.ApiService.UserUpdateTokenExecute(r)
+func (r ApiUpdateTokenRequest) Execute() (Token, *_nethttp.Response, error) {
+	return r.ApiService.UpdateTokenExecute(r)
 }
 
 /*
- * UserUpdateToken Update token
+ * UpdateToken Update token
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param token The token  Use this in the `X-API-Token` header when using the API.
- * @return ApiUserUpdateTokenRequest
+ * @return ApiUpdateTokenRequest
  */
-func (a *TokensApiService) UserUpdateToken(ctx _context.Context, token string) ApiUserUpdateTokenRequest {
-	return ApiUserUpdateTokenRequest{
+func (a *TokensApiService) UpdateToken(ctx _context.Context, token string) ApiUpdateTokenRequest {
+	return ApiUpdateTokenRequest{
 		ApiService: a,
 		ctx:        ctx,
 		token:      token,
@@ -765,7 +765,7 @@ func (a *TokensApiService) UserUpdateToken(ctx _context.Context, token string) A
  * Execute executes the request
  * @return Token
  */
-func (a *TokensApiService) UserUpdateTokenExecute(r ApiUserUpdateTokenRequest) (Token, *_nethttp.Response, error) {
+func (a *TokensApiService) UpdateTokenExecute(r ApiUpdateTokenRequest) (Token, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -775,7 +775,7 @@ func (a *TokensApiService) UserUpdateTokenExecute(r ApiUserUpdateTokenRequest) (
 		localVarReturnValue  Token
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.UserUpdateToken")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.UpdateToken")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}

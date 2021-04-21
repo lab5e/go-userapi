@@ -4,17 +4,17 @@ All URIs are relative to *https://api.lab5e.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UserCreateToken**](TokensApi.md#UserCreateToken) | **Post** /user/tokens | Create token
-[**UserDeleteToken**](TokensApi.md#UserDeleteToken) | **Delete** /user/tokens/{token} | Remove token
-[**UserListTokens**](TokensApi.md#UserListTokens) | **Get** /user/tokens | List tokens
-[**UserRetrieveToken**](TokensApi.md#UserRetrieveToken) | **Get** /user/tokens/{token} | Retrieve token
-[**UserUpdateToken**](TokensApi.md#UserUpdateToken) | **Patch** /user/tokens/{token} | Update token
+[**CreateToken**](TokensApi.md#CreateToken) | **Post** /user/tokens | Create token
+[**DeleteToken**](TokensApi.md#DeleteToken) | **Delete** /user/tokens/{token} | Remove token
+[**ListTokens**](TokensApi.md#ListTokens) | **Get** /user/tokens | List tokens
+[**RetrieveToken**](TokensApi.md#RetrieveToken) | **Get** /user/tokens/{token} | Retrieve token
+[**UpdateToken**](TokensApi.md#UpdateToken) | **Patch** /user/tokens/{token} | Update token
 
 
 
-## UserCreateToken
+## CreateToken
 
-> Token UserCreateToken(ctx).Body(body).Execute()
+> Token CreateToken(ctx).Body(body).Execute()
 
 Create token
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokensApi.UserCreateToken(context.Background()).Body(body).Execute()
+    resp, r, err := api_client.TokensApi.CreateToken(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.UserCreateToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.CreateToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserCreateToken`: Token
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.UserCreateToken`: %v\n", resp)
+    // response from `CreateToken`: Token
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.CreateToken`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserCreateTokenRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateTokenRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserDeleteToken
+## DeleteToken
 
-> map[string]interface{} UserDeleteToken(ctx, token).Execute()
+> DeleteTokenResponse DeleteToken(ctx, token).Execute()
 
 Remove token
 
@@ -99,13 +99,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokensApi.UserDeleteToken(context.Background(), token).Execute()
+    resp, r, err := api_client.TokensApi.DeleteToken(context.Background(), token).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.UserDeleteToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.DeleteToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserDeleteToken`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.UserDeleteToken`: %v\n", resp)
+    // response from `DeleteToken`: DeleteTokenResponse
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.DeleteToken`: %v\n", resp)
 }
 ```
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserDeleteTokenRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteTokenRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DeleteTokenResponse**](DeleteTokenResponse.md)
 
 ### Authorization
 
@@ -144,9 +144,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserListTokens
+## ListTokens
 
-> TokenList UserListTokens(ctx).Execute()
+> TokenList ListTokens(ctx).Execute()
 
 List tokens
 
@@ -166,13 +166,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokensApi.UserListTokens(context.Background()).Execute()
+    resp, r, err := api_client.TokensApi.ListTokens(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.UserListTokens``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.ListTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserListTokens`: TokenList
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.UserListTokens`: %v\n", resp)
+    // response from `ListTokens`: TokenList
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.ListTokens`: %v\n", resp)
 }
 ```
 
@@ -182,7 +182,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserListTokensRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListTokensRequest struct via the builder pattern
 
 
 ### Return type
@@ -203,9 +203,9 @@ Other parameters are passed through a pointer to a apiUserListTokensRequest stru
 [[Back to README]](../README.md)
 
 
-## UserRetrieveToken
+## RetrieveToken
 
-> Token UserRetrieveToken(ctx, token).Execute()
+> Token RetrieveToken(ctx, token).Execute()
 
 Retrieve token
 
@@ -226,13 +226,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokensApi.UserRetrieveToken(context.Background(), token).Execute()
+    resp, r, err := api_client.TokensApi.RetrieveToken(context.Background(), token).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.UserRetrieveToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.RetrieveToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserRetrieveToken`: Token
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.UserRetrieveToken`: %v\n", resp)
+    // response from `RetrieveToken`: Token
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.RetrieveToken`: %v\n", resp)
 }
 ```
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserRetrieveTokenRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetrieveTokenRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -271,9 +271,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserUpdateToken
+## UpdateToken
 
-> Token UserUpdateToken(ctx, token).Body(body).Execute()
+> Token UpdateToken(ctx, token).Body(body).Execute()
 
 Update token
 
@@ -295,13 +295,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TokensApi.UserUpdateToken(context.Background(), token).Body(body).Execute()
+    resp, r, err := api_client.TokensApi.UpdateToken(context.Background(), token).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.UserUpdateToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.UpdateToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserUpdateToken`: Token
-    fmt.Fprintf(os.Stdout, "Response from `TokensApi.UserUpdateToken`: %v\n", resp)
+    // response from `UpdateToken`: Token
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.UpdateToken`: %v\n", resp)
 }
 ```
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserUpdateTokenRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateTokenRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

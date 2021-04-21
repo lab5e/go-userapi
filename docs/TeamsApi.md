@@ -4,26 +4,26 @@ All URIs are relative to *https://api.lab5e.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UserAcceptInvite**](TeamsApi.md#UserAcceptInvite) | **Post** /user/teams/accept | Accept invite
-[**UserCreateTeam**](TeamsApi.md#UserCreateTeam) | **Post** /user/teams | Create team
-[**UserDeleteInvite**](TeamsApi.md#UserDeleteInvite) | **Delete** /user/teams/{teamId}/invites/{code} | Delete invite
-[**UserDeleteMember**](TeamsApi.md#UserDeleteMember) | **Delete** /user/teams/{teamId}/members/{userId} | Remove member
-[**UserDeleteTeam**](TeamsApi.md#UserDeleteTeam) | **Delete** /user/teams/{teamId} | Remove team
-[**UserGenerateInvite**](TeamsApi.md#UserGenerateInvite) | **Post** /user/teams/{teamId}/invites | Generate invite
-[**UserListInvites**](TeamsApi.md#UserListInvites) | **Get** /user/teams/{teamId}/invites | List invites
-[**UserListTeams**](TeamsApi.md#UserListTeams) | **Get** /user/teams | List teams
-[**UserRetrieveInvite**](TeamsApi.md#UserRetrieveInvite) | **Get** /user/teams/{teamId}/invites/{code} | Retrieve invite
-[**UserRetrieveMember**](TeamsApi.md#UserRetrieveMember) | **Get** /user/teams/{teamId}/members/{userId} | Retrieve member
-[**UserRetrieveTeam**](TeamsApi.md#UserRetrieveTeam) | **Get** /user/teams/{teamId} | Retrieve team
-[**UserRetrieveTeamMembers**](TeamsApi.md#UserRetrieveTeamMembers) | **Get** /user/teams/{teamId}/members | List members
-[**UserUpdateMember**](TeamsApi.md#UserUpdateMember) | **Patch** /user/teams/{teamId}/members/{userId} | Update member
-[**UserUpdateTeam**](TeamsApi.md#UserUpdateTeam) | **Patch** /user/teams/{teamId} | Update team
+[**AcceptInvite**](TeamsApi.md#AcceptInvite) | **Post** /user/teams/accept | Accept invite
+[**CreateTeam**](TeamsApi.md#CreateTeam) | **Post** /user/teams | Create team
+[**DeleteInvite**](TeamsApi.md#DeleteInvite) | **Delete** /user/teams/{teamId}/invites/{code} | Delete invite
+[**DeleteMember**](TeamsApi.md#DeleteMember) | **Delete** /user/teams/{teamId}/members/{userId} | Remove member
+[**DeleteTeam**](TeamsApi.md#DeleteTeam) | **Delete** /user/teams/{teamId} | Remove team
+[**GenerateInvite**](TeamsApi.md#GenerateInvite) | **Post** /user/teams/{teamId}/invites | Generate invite
+[**ListInvites**](TeamsApi.md#ListInvites) | **Get** /user/teams/{teamId}/invites | List invites
+[**ListTeams**](TeamsApi.md#ListTeams) | **Get** /user/teams | List teams
+[**RetrieveInvite**](TeamsApi.md#RetrieveInvite) | **Get** /user/teams/{teamId}/invites/{code} | Retrieve invite
+[**RetrieveMember**](TeamsApi.md#RetrieveMember) | **Get** /user/teams/{teamId}/members/{userId} | Retrieve member
+[**RetrieveTeam**](TeamsApi.md#RetrieveTeam) | **Get** /user/teams/{teamId} | Retrieve team
+[**RetrieveTeamMembers**](TeamsApi.md#RetrieveTeamMembers) | **Get** /user/teams/{teamId}/members | List members
+[**UpdateMember**](TeamsApi.md#UpdateMember) | **Patch** /user/teams/{teamId}/members/{userId} | Update member
+[**UpdateTeam**](TeamsApi.md#UpdateTeam) | **Patch** /user/teams/{teamId} | Update team
 
 
 
-## UserAcceptInvite
+## AcceptInvite
 
-> Team UserAcceptInvite(ctx).Body(body).Execute()
+> Team AcceptInvite(ctx).Body(body).Execute()
 
 Accept invite
 
@@ -46,13 +46,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserAcceptInvite(context.Background()).Body(body).Execute()
+    resp, r, err := api_client.TeamsApi.AcceptInvite(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserAcceptInvite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.AcceptInvite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserAcceptInvite`: Team
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserAcceptInvite`: %v\n", resp)
+    // response from `AcceptInvite`: Team
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.AcceptInvite`: %v\n", resp)
 }
 ```
 
@@ -62,7 +62,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserAcceptInviteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAcceptInviteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -87,9 +87,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserCreateTeam
+## CreateTeam
 
-> Team UserCreateTeam(ctx).Body(body).Execute()
+> Team CreateTeam(ctx).Body(body).Execute()
 
 Create team
 
@@ -110,13 +110,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserCreateTeam(context.Background()).Body(body).Execute()
+    resp, r, err := api_client.TeamsApi.CreateTeam(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserCreateTeam``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.CreateTeam``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserCreateTeam`: Team
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserCreateTeam`: %v\n", resp)
+    // response from `CreateTeam`: Team
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.CreateTeam`: %v\n", resp)
 }
 ```
 
@@ -126,7 +126,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserCreateTeamRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateTeamRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -151,9 +151,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserDeleteInvite
+## DeleteInvite
 
-> map[string]interface{} UserDeleteInvite(ctx, teamId, code).Execute()
+> DeleteInviteResponse DeleteInvite(ctx, teamId, code).Execute()
 
 Delete invite
 
@@ -177,13 +177,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserDeleteInvite(context.Background(), teamId, code).Execute()
+    resp, r, err := api_client.TeamsApi.DeleteInvite(context.Background(), teamId, code).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserDeleteInvite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.DeleteInvite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserDeleteInvite`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserDeleteInvite`: %v\n", resp)
+    // response from `DeleteInvite`: DeleteInviteResponse
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.DeleteInvite`: %v\n", resp)
 }
 ```
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserDeleteInviteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteInviteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DeleteInviteResponse**](DeleteInviteResponse.md)
 
 ### Authorization
 
@@ -224,9 +224,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserDeleteMember
+## DeleteMember
 
-> Member UserDeleteMember(ctx, teamId, userId).Execute()
+> Member DeleteMember(ctx, teamId, userId).Execute()
 
 Remove member
 
@@ -250,13 +250,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserDeleteMember(context.Background(), teamId, userId).Execute()
+    resp, r, err := api_client.TeamsApi.DeleteMember(context.Background(), teamId, userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserDeleteMember``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.DeleteMember``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserDeleteMember`: Member
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserDeleteMember`: %v\n", resp)
+    // response from `DeleteMember`: Member
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.DeleteMember`: %v\n", resp)
 }
 ```
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserDeleteMemberRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteMemberRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -297,9 +297,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserDeleteTeam
+## DeleteTeam
 
-> Team UserDeleteTeam(ctx, teamId).Execute()
+> Team DeleteTeam(ctx, teamId).Execute()
 
 Remove team
 
@@ -322,13 +322,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserDeleteTeam(context.Background(), teamId).Execute()
+    resp, r, err := api_client.TeamsApi.DeleteTeam(context.Background(), teamId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserDeleteTeam``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.DeleteTeam``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserDeleteTeam`: Team
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserDeleteTeam`: %v\n", resp)
+    // response from `DeleteTeam`: Team
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.DeleteTeam`: %v\n", resp)
 }
 ```
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserDeleteTeamRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteTeamRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -367,9 +367,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserGenerateInvite
+## GenerateInvite
 
-> Invite UserGenerateInvite(ctx, teamId).Body(body).Execute()
+> Invite GenerateInvite(ctx, teamId).Body(body).Execute()
 
 Generate invite
 
@@ -393,13 +393,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserGenerateInvite(context.Background(), teamId).Body(body).Execute()
+    resp, r, err := api_client.TeamsApi.GenerateInvite(context.Background(), teamId).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserGenerateInvite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.GenerateInvite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserGenerateInvite`: Invite
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserGenerateInvite`: %v\n", resp)
+    // response from `GenerateInvite`: Invite
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.GenerateInvite`: %v\n", resp)
 }
 ```
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserGenerateInviteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGenerateInviteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -439,9 +439,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserListInvites
+## ListInvites
 
-> InviteList UserListInvites(ctx, teamId).Execute()
+> InviteList ListInvites(ctx, teamId).Execute()
 
 List invites
 
@@ -464,13 +464,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserListInvites(context.Background(), teamId).Execute()
+    resp, r, err := api_client.TeamsApi.ListInvites(context.Background(), teamId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserListInvites``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.ListInvites``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserListInvites`: InviteList
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserListInvites`: %v\n", resp)
+    // response from `ListInvites`: InviteList
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.ListInvites`: %v\n", resp)
 }
 ```
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserListInvitesRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListInvitesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -509,9 +509,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserListTeams
+## ListTeams
 
-> TeamList UserListTeams(ctx).Execute()
+> TeamList ListTeams(ctx).Execute()
 
 List teams
 
@@ -533,13 +533,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserListTeams(context.Background()).Execute()
+    resp, r, err := api_client.TeamsApi.ListTeams(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserListTeams``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.ListTeams``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserListTeams`: TeamList
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserListTeams`: %v\n", resp)
+    // response from `ListTeams`: TeamList
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.ListTeams`: %v\n", resp)
 }
 ```
 
@@ -549,7 +549,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserListTeamsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListTeamsRequest struct via the builder pattern
 
 
 ### Return type
@@ -570,9 +570,9 @@ Other parameters are passed through a pointer to a apiUserListTeamsRequest struc
 [[Back to README]](../README.md)
 
 
-## UserRetrieveInvite
+## RetrieveInvite
 
-> Invite UserRetrieveInvite(ctx, teamId, code).Execute()
+> Invite RetrieveInvite(ctx, teamId, code).Execute()
 
 Retrieve invite
 
@@ -596,13 +596,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserRetrieveInvite(context.Background(), teamId, code).Execute()
+    resp, r, err := api_client.TeamsApi.RetrieveInvite(context.Background(), teamId, code).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserRetrieveInvite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.RetrieveInvite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserRetrieveInvite`: Invite
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserRetrieveInvite`: %v\n", resp)
+    // response from `RetrieveInvite`: Invite
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.RetrieveInvite`: %v\n", resp)
 }
 ```
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserRetrieveInviteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetrieveInviteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -643,9 +643,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserRetrieveMember
+## RetrieveMember
 
-> Member UserRetrieveMember(ctx, teamId, userId).Execute()
+> Member RetrieveMember(ctx, teamId, userId).Execute()
 
 Retrieve member
 
@@ -667,13 +667,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserRetrieveMember(context.Background(), teamId, userId).Execute()
+    resp, r, err := api_client.TeamsApi.RetrieveMember(context.Background(), teamId, userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserRetrieveMember``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.RetrieveMember``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserRetrieveMember`: Member
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserRetrieveMember`: %v\n", resp)
+    // response from `RetrieveMember`: Member
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.RetrieveMember`: %v\n", resp)
 }
 ```
 
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserRetrieveMemberRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetrieveMemberRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -714,9 +714,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserRetrieveTeam
+## RetrieveTeam
 
-> Team UserRetrieveTeam(ctx, teamId).Execute()
+> Team RetrieveTeam(ctx, teamId).Execute()
 
 Retrieve team
 
@@ -737,13 +737,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserRetrieveTeam(context.Background(), teamId).Execute()
+    resp, r, err := api_client.TeamsApi.RetrieveTeam(context.Background(), teamId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserRetrieveTeam``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.RetrieveTeam``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserRetrieveTeam`: Team
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserRetrieveTeam`: %v\n", resp)
+    // response from `RetrieveTeam`: Team
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.RetrieveTeam`: %v\n", resp)
 }
 ```
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserRetrieveTeamRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetrieveTeamRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -782,9 +782,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserRetrieveTeamMembers
+## RetrieveTeamMembers
 
-> MemberList UserRetrieveTeamMembers(ctx, teamId).Execute()
+> MemberList RetrieveTeamMembers(ctx, teamId).Execute()
 
 List members
 
@@ -805,13 +805,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserRetrieveTeamMembers(context.Background(), teamId).Execute()
+    resp, r, err := api_client.TeamsApi.RetrieveTeamMembers(context.Background(), teamId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserRetrieveTeamMembers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.RetrieveTeamMembers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserRetrieveTeamMembers`: MemberList
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserRetrieveTeamMembers`: %v\n", resp)
+    // response from `RetrieveTeamMembers`: MemberList
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.RetrieveTeamMembers`: %v\n", resp)
 }
 ```
 
@@ -825,7 +825,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserRetrieveTeamMembersRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetrieveTeamMembersRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -850,9 +850,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserUpdateMember
+## UpdateMember
 
-> Member UserUpdateMember(ctx, teamId, userId).Body(body).Execute()
+> Member UpdateMember(ctx, teamId, userId).Body(body).Execute()
 
 Update member
 
@@ -877,13 +877,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserUpdateMember(context.Background(), teamId, userId).Body(body).Execute()
+    resp, r, err := api_client.TeamsApi.UpdateMember(context.Background(), teamId, userId).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserUpdateMember``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UpdateMember``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserUpdateMember`: Member
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserUpdateMember`: %v\n", resp)
+    // response from `UpdateMember`: Member
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UpdateMember`: %v\n", resp)
 }
 ```
 
@@ -898,7 +898,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserUpdateMemberRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateMemberRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -925,9 +925,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UserUpdateTeam
+## UpdateTeam
 
-> Team UserUpdateTeam(ctx, teamId).Body(body).Execute()
+> Team UpdateTeam(ctx, teamId).Body(body).Execute()
 
 Update team
 
@@ -951,13 +951,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TeamsApi.UserUpdateTeam(context.Background(), teamId).Body(body).Execute()
+    resp, r, err := api_client.TeamsApi.UpdateTeam(context.Background(), teamId).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UserUpdateTeam``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UpdateTeam``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserUpdateTeam`: Team
-    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UserUpdateTeam`: %v\n", resp)
+    // response from `UpdateTeam`: Team
+    fmt.Fprintf(os.Stdout, "Response from `TeamsApi.UpdateTeam`: %v\n", resp)
 }
 ```
 
@@ -971,7 +971,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserUpdateTeamRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateTeamRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

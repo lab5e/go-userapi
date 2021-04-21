@@ -4,13 +4,13 @@ All URIs are relative to *https://api.lab5e.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UserGetUserProfile**](ProfileApi.md#UserGetUserProfile) | **Get** /user/profile | Logged in profile
+[**GetUserProfile**](ProfileApi.md#GetUserProfile) | **Get** /user/profile | Logged in profile
 
 
 
-## UserGetUserProfile
+## GetUserProfile
 
-> UserProfile UserGetUserProfile(ctx).Execute()
+> UserProfile GetUserProfile(ctx).Execute()
 
 Logged in profile
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProfileApi.UserGetUserProfile(context.Background()).Execute()
+    resp, r, err := api_client.ProfileApi.GetUserProfile(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.UserGetUserProfile``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.GetUserProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UserGetUserProfile`: UserProfile
-    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.UserGetUserProfile`: %v\n", resp)
+    // response from `GetUserProfile`: UserProfile
+    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.GetUserProfile`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUserGetUserProfileRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUserProfileRequest struct via the builder pattern
 
 
 ### Return type
