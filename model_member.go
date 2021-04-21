@@ -17,10 +17,10 @@ import (
 
 // Member struct for Member
 type Member struct {
-	TeamId *string `json:"teamId,omitempty"`
-	Role *string `json:"role,omitempty"`
-	UserId *string `json:"userId,omitempty"`
-	User *UserProfile `json:"user,omitempty"`
+	TeamId *string      `json:"teamId,omitempty"`
+	Role   *string      `json:"role,omitempty"`
+	UserId *string      `json:"userId,omitempty"`
+	User   *UserProfile `json:"user,omitempty"`
 }
 
 // NewMember instantiates a new Member object
@@ -220,5 +220,3 @@ func (v *NullableMember) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
