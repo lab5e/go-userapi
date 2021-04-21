@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.5 everlasting-ashanti
+ * API version: 1.3.6 crooked-daija
  * Contact: dev@lab5e.com
  */
 
@@ -113,3 +113,5 @@ func (v *NullableAcceptInviteRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
