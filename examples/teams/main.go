@@ -53,7 +53,7 @@ func main() {
 	// * error
 	// The response object can usually be ignored unless you want to inspect the
 	// internal state in the client.
-	teamList, _, err := userapiClient.TeamsApi.UserListTeams(ctx).Execute()
+	teamList, _, err := userapiClient.TeamsApi.ListTeams(ctx).Execute()
 	if err != nil {
 		fmt.Println("Got error requesting teams: ", err)
 		return

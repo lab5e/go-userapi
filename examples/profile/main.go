@@ -52,7 +52,7 @@ func main() {
 	// * error
 	// The response object can usually be ignored unless you want to inspect the
 	// internal state in the client.
-	profile, response, err := userapiClient.ProfileApi.UserGetUserProfile(ctx).Execute()
+	profile, response, err := userapiClient.ProfileApi.GetUserProfile(ctx).Execute()
 	if err != nil {
 		fmt.Println("Got error requesting profile: ", err)
 		fmt.Println("Response is ", response)
