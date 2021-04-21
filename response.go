@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.6 crooked-daija
+ * API version: 1.3.7 frequent-amara
  * Contact: dev@lab5e.com
  */
 

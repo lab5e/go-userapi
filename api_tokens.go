@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.6 crooked-daija
+ * API version: 1.3.7 frequent-amara
  * Contact: dev@lab5e.com
  */
 
@@ -29,9 +29,9 @@ var (
 type TokensApiService service
 
 type ApiCreateTokenRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TokensApiService
-	body       *Token
+	body *Token
 }
 
 func (r ApiCreateTokenRequest) Body(body Token) ApiCreateTokenRequest {
@@ -51,7 +51,7 @@ func (r ApiCreateTokenRequest) Execute() (Token, *_nethttp.Response, error) {
 func (a *TokensApiService) CreateToken(ctx _context.Context) ApiCreateTokenRequest {
 	return ApiCreateTokenRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -188,13 +188,13 @@ func (a *TokensApiService) CreateTokenExecute(r ApiCreateTokenRequest) (Token, *
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -211,10 +211,11 @@ func (a *TokensApiService) CreateTokenExecute(r ApiCreateTokenRequest) (Token, *
 }
 
 type ApiDeleteTokenRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TokensApiService
-	token      string
+	token string
 }
+
 
 func (r ApiDeleteTokenRequest) Execute() (DeleteTokenResponse, *_nethttp.Response, error) {
 	return r.ApiService.DeleteTokenExecute(r)
@@ -229,8 +230,8 @@ func (r ApiDeleteTokenRequest) Execute() (DeleteTokenResponse, *_nethttp.Respons
 func (a *TokensApiService) DeleteToken(ctx _context.Context, token string) ApiDeleteTokenRequest {
 	return ApiDeleteTokenRequest{
 		ApiService: a,
-		ctx:        ctx,
-		token:      token,
+		ctx: ctx,
+		token: token,
 	}
 }
 
@@ -363,13 +364,13 @@ func (a *TokensApiService) DeleteTokenExecute(r ApiDeleteTokenRequest) (DeleteTo
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -386,9 +387,10 @@ func (a *TokensApiService) DeleteTokenExecute(r ApiDeleteTokenRequest) (DeleteTo
 }
 
 type ApiListTokensRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TokensApiService
 }
+
 
 func (r ApiListTokensRequest) Execute() (TokenList, *_nethttp.Response, error) {
 	return r.ApiService.ListTokensExecute(r)
@@ -402,7 +404,7 @@ func (r ApiListTokensRequest) Execute() (TokenList, *_nethttp.Response, error) {
 func (a *TokensApiService) ListTokens(ctx _context.Context) ApiListTokensRequest {
 	return ApiListTokensRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -534,13 +536,13 @@ func (a *TokensApiService) ListTokensExecute(r ApiListTokensRequest) (TokenList,
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -557,10 +559,11 @@ func (a *TokensApiService) ListTokensExecute(r ApiListTokensRequest) (TokenList,
 }
 
 type ApiRetrieveTokenRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TokensApiService
-	token      string
+	token string
 }
+
 
 func (r ApiRetrieveTokenRequest) Execute() (Token, *_nethttp.Response, error) {
 	return r.ApiService.RetrieveTokenExecute(r)
@@ -575,8 +578,8 @@ func (r ApiRetrieveTokenRequest) Execute() (Token, *_nethttp.Response, error) {
 func (a *TokensApiService) RetrieveToken(ctx _context.Context, token string) ApiRetrieveTokenRequest {
 	return ApiRetrieveTokenRequest{
 		ApiService: a,
-		ctx:        ctx,
-		token:      token,
+		ctx: ctx,
+		token: token,
 	}
 }
 
@@ -709,13 +712,13 @@ func (a *TokensApiService) RetrieveTokenExecute(r ApiRetrieveTokenRequest) (Toke
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -732,10 +735,10 @@ func (a *TokensApiService) RetrieveTokenExecute(r ApiRetrieveTokenRequest) (Toke
 }
 
 type ApiUpdateTokenRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *TokensApiService
-	token      string
-	body       *Token
+	token string
+	body *Token
 }
 
 func (r ApiUpdateTokenRequest) Body(body Token) ApiUpdateTokenRequest {
@@ -756,8 +759,8 @@ func (r ApiUpdateTokenRequest) Execute() (Token, *_nethttp.Response, error) {
 func (a *TokensApiService) UpdateToken(ctx _context.Context, token string) ApiUpdateTokenRequest {
 	return ApiUpdateTokenRequest{
 		ApiService: a,
-		ctx:        ctx,
-		token:      token,
+		ctx: ctx,
+		token: token,
 	}
 }
 
@@ -895,13 +898,13 @@ func (a *TokensApiService) UpdateTokenExecute(r ApiUpdateTokenRequest) (Token, *
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		var v RpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v RpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
