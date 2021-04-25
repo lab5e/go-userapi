@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.7 frequent-amara
+ * API version: 1.3.8 indivisible-esau
  * Contact: dev@lab5e.com
  */
 
@@ -41,7 +41,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the The User API API v1.3.7 frequent-amara
+// APIClient manages communication with the The User API API v1.3.8 indivisible-esau
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
