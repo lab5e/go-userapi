@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.8 indivisible-esau
+ * API version: 1.3.9 cumulative-hardin
  * Contact: dev@lab5e.com
  */
 
@@ -18,7 +18,7 @@ import (
 // ProtobufAny struct for ProtobufAny
 type ProtobufAny struct {
 	TypeUrl *string `json:"typeUrl,omitempty"`
-	Value   *string `json:"value,omitempty"`
+	Value *string `json:"value,omitempty"`
 }
 
 // NewProtobufAny instantiates a new ProtobufAny object
@@ -148,3 +148,5 @@ func (v *NullableProtobufAny) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
