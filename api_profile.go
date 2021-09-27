@@ -28,10 +28,9 @@ var (
 type ProfileApiService service
 
 type ApiGetUserProfileRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *ProfileApiService
 }
-
 
 func (r ApiGetUserProfileRequest) Execute() (UserProfile, *_nethttp.Response, error) {
 	return r.ApiService.GetUserProfileExecute(r)
@@ -46,7 +45,7 @@ func (r ApiGetUserProfileRequest) Execute() (UserProfile, *_nethttp.Response, er
 func (a *ProfileApiService) GetUserProfile(ctx _context.Context) ApiGetUserProfileRequest {
 	return ApiGetUserProfileRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -178,13 +177,13 @@ func (a *ProfileApiService) GetUserProfileExecute(r ApiGetUserProfileRequest) (U
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
