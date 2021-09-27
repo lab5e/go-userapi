@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.10 constant-champ
+ * API version: 1.3.11 lucky-fremont
  * Contact: dev@lab5e.com
  */
 
@@ -112,3 +112,5 @@ func (v *NullableDeleteInviteResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

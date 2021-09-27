@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.10 constant-champ
+ * API version: 1.3.11 lucky-fremont
  * Contact: dev@lab5e.com
  */
 
@@ -41,7 +41,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the The User API API v1.3.10 constant-champ
+// APIClient manages communication with the The User API API v1.3.11 lucky-fremont
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
