@@ -25,7 +25,7 @@ type AnAPIToken struct {
 	Tags *map[string]string `json:"tags,omitempty"`
 	// The last time the token was used. Time in ms since epoch.
 	LastUse *string `json:"lastUse,omitempty"`
-	Uses *string `json:"uses,omitempty"`
+	Uses    *string `json:"uses,omitempty"`
 }
 
 // NewAnAPIToken instantiates a new AnAPIToken object
@@ -260,5 +260,3 @@ func (v *NullableAnAPIToken) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

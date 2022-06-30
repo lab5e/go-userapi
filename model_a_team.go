@@ -17,9 +17,9 @@ import (
 
 // ATeam struct for ATeam
 type ATeam struct {
-	IsPrivate *bool `json:"isPrivate,omitempty"`
-	Tags *map[string]string `json:"tags,omitempty"`
-	Members *[]Member `json:"members,omitempty"`
+	IsPrivate *bool              `json:"isPrivate,omitempty"`
+	Tags      *map[string]string `json:"tags,omitempty"`
+	Members   *[]Member          `json:"members,omitempty"`
 }
 
 // NewATeam instantiates a new ATeam object
@@ -184,5 +184,3 @@ func (v *NullableATeam) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

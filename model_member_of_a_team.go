@@ -17,7 +17,7 @@ import (
 
 // MemberOfATeam struct for MemberOfATeam
 type MemberOfATeam struct {
-	Role *string `json:"role,omitempty"`
+	Role *string      `json:"role,omitempty"`
 	User *UserProfile `json:"user,omitempty"`
 }
 
@@ -148,5 +148,3 @@ func (v *NullableMemberOfATeam) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
