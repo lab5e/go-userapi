@@ -15,31 +15,31 @@ import (
 	"encoding/json"
 )
 
-// AcceptInviteRequest struct for AcceptInviteRequest
-type AcceptInviteRequest struct {
-	// The invite code to use.
+// RequestInviteDetails struct for RequestInviteDetails
+type RequestInviteDetails struct {
+	// The invite code.
 	Code *string `json:"code,omitempty"`
 }
 
-// NewAcceptInviteRequest instantiates a new AcceptInviteRequest object
+// NewRequestInviteDetails instantiates a new RequestInviteDetails object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAcceptInviteRequest() *AcceptInviteRequest {
-	this := AcceptInviteRequest{}
+func NewRequestInviteDetails() *RequestInviteDetails {
+	this := RequestInviteDetails{}
 	return &this
 }
 
-// NewAcceptInviteRequestWithDefaults instantiates a new AcceptInviteRequest object
+// NewRequestInviteDetailsWithDefaults instantiates a new RequestInviteDetails object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAcceptInviteRequestWithDefaults() *AcceptInviteRequest {
-	this := AcceptInviteRequest{}
+func NewRequestInviteDetailsWithDefaults() *RequestInviteDetails {
+	this := RequestInviteDetails{}
 	return &this
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *AcceptInviteRequest) GetCode() string {
+func (o *RequestInviteDetails) GetCode() string {
 	if o == nil || o.Code == nil {
 		var ret string
 		return ret
@@ -49,7 +49,7 @@ func (o *AcceptInviteRequest) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcceptInviteRequest) GetCodeOk() (*string, bool) {
+func (o *RequestInviteDetails) GetCodeOk() (*string, bool) {
 	if o == nil || o.Code == nil {
 		return nil, false
 	}
@@ -57,7 +57,7 @@ func (o *AcceptInviteRequest) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *AcceptInviteRequest) HasCode() bool {
+func (o *RequestInviteDetails) HasCode() bool {
 	if o != nil && o.Code != nil {
 		return true
 	}
@@ -66,11 +66,11 @@ func (o *AcceptInviteRequest) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *AcceptInviteRequest) SetCode(v string) {
+func (o *RequestInviteDetails) SetCode(v string) {
 	o.Code = &v
 }
 
-func (o AcceptInviteRequest) MarshalJSON() ([]byte, error) {
+func (o RequestInviteDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
@@ -78,38 +78,38 @@ func (o AcceptInviteRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableAcceptInviteRequest struct {
-	value *AcceptInviteRequest
+type NullableRequestInviteDetails struct {
+	value *RequestInviteDetails
 	isSet bool
 }
 
-func (v NullableAcceptInviteRequest) Get() *AcceptInviteRequest {
+func (v NullableRequestInviteDetails) Get() *RequestInviteDetails {
 	return v.value
 }
 
-func (v *NullableAcceptInviteRequest) Set(val *AcceptInviteRequest) {
+func (v *NullableRequestInviteDetails) Set(val *RequestInviteDetails) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAcceptInviteRequest) IsSet() bool {
+func (v NullableRequestInviteDetails) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAcceptInviteRequest) Unset() {
+func (v *NullableRequestInviteDetails) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAcceptInviteRequest(val *AcceptInviteRequest) *NullableAcceptInviteRequest {
-	return &NullableAcceptInviteRequest{value: val, isSet: true}
+func NewNullableRequestInviteDetails(val *RequestInviteDetails) *NullableRequestInviteDetails {
+	return &NullableRequestInviteDetails{value: val, isSet: true}
 }
 
-func (v NullableAcceptInviteRequest) MarshalJSON() ([]byte, error) {
+func (v NullableRequestInviteDetails) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAcceptInviteRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableRequestInviteDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

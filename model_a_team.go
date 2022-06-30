@@ -15,65 +15,32 @@ import (
 	"encoding/json"
 )
 
-// Team struct for Team
-type Team struct {
-	TeamId *string `json:"teamId,omitempty"`
+// ATeam struct for ATeam
+type ATeam struct {
 	IsPrivate *bool `json:"isPrivate,omitempty"`
 	Tags *map[string]string `json:"tags,omitempty"`
 	Members *[]Member `json:"members,omitempty"`
 }
 
-// NewTeam instantiates a new Team object
+// NewATeam instantiates a new ATeam object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTeam() *Team {
-	this := Team{}
+func NewATeam() *ATeam {
+	this := ATeam{}
 	return &this
 }
 
-// NewTeamWithDefaults instantiates a new Team object
+// NewATeamWithDefaults instantiates a new ATeam object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTeamWithDefaults() *Team {
-	this := Team{}
+func NewATeamWithDefaults() *ATeam {
+	this := ATeam{}
 	return &this
-}
-
-// GetTeamId returns the TeamId field value if set, zero value otherwise.
-func (o *Team) GetTeamId() string {
-	if o == nil || o.TeamId == nil {
-		var ret string
-		return ret
-	}
-	return *o.TeamId
-}
-
-// GetTeamIdOk returns a tuple with the TeamId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Team) GetTeamIdOk() (*string, bool) {
-	if o == nil || o.TeamId == nil {
-		return nil, false
-	}
-	return o.TeamId, true
-}
-
-// HasTeamId returns a boolean if a field has been set.
-func (o *Team) HasTeamId() bool {
-	if o != nil && o.TeamId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTeamId gets a reference to the given string and assigns it to the TeamId field.
-func (o *Team) SetTeamId(v string) {
-	o.TeamId = &v
 }
 
 // GetIsPrivate returns the IsPrivate field value if set, zero value otherwise.
-func (o *Team) GetIsPrivate() bool {
+func (o *ATeam) GetIsPrivate() bool {
 	if o == nil || o.IsPrivate == nil {
 		var ret bool
 		return ret
@@ -83,7 +50,7 @@ func (o *Team) GetIsPrivate() bool {
 
 // GetIsPrivateOk returns a tuple with the IsPrivate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Team) GetIsPrivateOk() (*bool, bool) {
+func (o *ATeam) GetIsPrivateOk() (*bool, bool) {
 	if o == nil || o.IsPrivate == nil {
 		return nil, false
 	}
@@ -91,7 +58,7 @@ func (o *Team) GetIsPrivateOk() (*bool, bool) {
 }
 
 // HasIsPrivate returns a boolean if a field has been set.
-func (o *Team) HasIsPrivate() bool {
+func (o *ATeam) HasIsPrivate() bool {
 	if o != nil && o.IsPrivate != nil {
 		return true
 	}
@@ -100,12 +67,12 @@ func (o *Team) HasIsPrivate() bool {
 }
 
 // SetIsPrivate gets a reference to the given bool and assigns it to the IsPrivate field.
-func (o *Team) SetIsPrivate(v bool) {
+func (o *ATeam) SetIsPrivate(v bool) {
 	o.IsPrivate = &v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *Team) GetTags() map[string]string {
+func (o *ATeam) GetTags() map[string]string {
 	if o == nil || o.Tags == nil {
 		var ret map[string]string
 		return ret
@@ -115,7 +82,7 @@ func (o *Team) GetTags() map[string]string {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Team) GetTagsOk() (*map[string]string, bool) {
+func (o *ATeam) GetTagsOk() (*map[string]string, bool) {
 	if o == nil || o.Tags == nil {
 		return nil, false
 	}
@@ -123,7 +90,7 @@ func (o *Team) GetTagsOk() (*map[string]string, bool) {
 }
 
 // HasTags returns a boolean if a field has been set.
-func (o *Team) HasTags() bool {
+func (o *ATeam) HasTags() bool {
 	if o != nil && o.Tags != nil {
 		return true
 	}
@@ -132,12 +99,12 @@ func (o *Team) HasTags() bool {
 }
 
 // SetTags gets a reference to the given map[string]string and assigns it to the Tags field.
-func (o *Team) SetTags(v map[string]string) {
+func (o *ATeam) SetTags(v map[string]string) {
 	o.Tags = &v
 }
 
 // GetMembers returns the Members field value if set, zero value otherwise.
-func (o *Team) GetMembers() []Member {
+func (o *ATeam) GetMembers() []Member {
 	if o == nil || o.Members == nil {
 		var ret []Member
 		return ret
@@ -147,7 +114,7 @@ func (o *Team) GetMembers() []Member {
 
 // GetMembersOk returns a tuple with the Members field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Team) GetMembersOk() (*[]Member, bool) {
+func (o *ATeam) GetMembersOk() (*[]Member, bool) {
 	if o == nil || o.Members == nil {
 		return nil, false
 	}
@@ -155,7 +122,7 @@ func (o *Team) GetMembersOk() (*[]Member, bool) {
 }
 
 // HasMembers returns a boolean if a field has been set.
-func (o *Team) HasMembers() bool {
+func (o *ATeam) HasMembers() bool {
 	if o != nil && o.Members != nil {
 		return true
 	}
@@ -164,15 +131,12 @@ func (o *Team) HasMembers() bool {
 }
 
 // SetMembers gets a reference to the given []Member and assigns it to the Members field.
-func (o *Team) SetMembers(v []Member) {
+func (o *ATeam) SetMembers(v []Member) {
 	o.Members = &v
 }
 
-func (o Team) MarshalJSON() ([]byte, error) {
+func (o ATeam) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TeamId != nil {
-		toSerialize["teamId"] = o.TeamId
-	}
 	if o.IsPrivate != nil {
 		toSerialize["isPrivate"] = o.IsPrivate
 	}
@@ -185,38 +149,38 @@ func (o Team) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableTeam struct {
-	value *Team
+type NullableATeam struct {
+	value *ATeam
 	isSet bool
 }
 
-func (v NullableTeam) Get() *Team {
+func (v NullableATeam) Get() *ATeam {
 	return v.value
 }
 
-func (v *NullableTeam) Set(val *Team) {
+func (v *NullableATeam) Set(val *ATeam) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTeam) IsSet() bool {
+func (v NullableATeam) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTeam) Unset() {
+func (v *NullableATeam) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTeam(val *Team) *NullableTeam {
-	return &NullableTeam{value: val, isSet: true}
+func NewNullableATeam(val *ATeam) *NullableATeam {
+	return &NullableATeam{value: val, isSet: true}
 }
 
-func (v NullableTeam) MarshalJSON() ([]byte, error) {
+func (v NullableATeam) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTeam) UnmarshalJSON(src []byte) error {
+func (v *NullableATeam) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

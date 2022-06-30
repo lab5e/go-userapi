@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.11 lucky-fremont
+ * API version: 1.3.13 bordering-jerilyn
  * Contact: dev@lab5e.com
  */
 
@@ -17,8 +17,7 @@ import (
 
 // ProtobufAny struct for ProtobufAny
 type ProtobufAny struct {
-	TypeUrl *string `json:"typeUrl,omitempty"`
-	Value   *string `json:"value,omitempty"`
+	Type *string `json:"@type,omitempty"`
 }
 
 // NewProtobufAny instantiates a new ProtobufAny object
@@ -38,77 +37,42 @@ func NewProtobufAnyWithDefaults() *ProtobufAny {
 	return &this
 }
 
-// GetTypeUrl returns the TypeUrl field value if set, zero value otherwise.
-func (o *ProtobufAny) GetTypeUrl() string {
-	if o == nil || o.TypeUrl == nil {
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *ProtobufAny) GetType() string {
+	if o == nil || o.Type == nil {
 		var ret string
 		return ret
 	}
-	return *o.TypeUrl
+	return *o.Type
 }
 
-// GetTypeUrlOk returns a tuple with the TypeUrl field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProtobufAny) GetTypeUrlOk() (*string, bool) {
-	if o == nil || o.TypeUrl == nil {
+func (o *ProtobufAny) GetTypeOk() (*string, bool) {
+	if o == nil || o.Type == nil {
 		return nil, false
 	}
-	return o.TypeUrl, true
+	return o.Type, true
 }
 
-// HasTypeUrl returns a boolean if a field has been set.
-func (o *ProtobufAny) HasTypeUrl() bool {
-	if o != nil && o.TypeUrl != nil {
+// HasType returns a boolean if a field has been set.
+func (o *ProtobufAny) HasType() bool {
+	if o != nil && o.Type != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetTypeUrl gets a reference to the given string and assigns it to the TypeUrl field.
-func (o *ProtobufAny) SetTypeUrl(v string) {
-	o.TypeUrl = &v
-}
-
-// GetValue returns the Value field value if set, zero value otherwise.
-func (o *ProtobufAny) GetValue() string {
-	if o == nil || o.Value == nil {
-		var ret string
-		return ret
-	}
-	return *o.Value
-}
-
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProtobufAny) GetValueOk() (*string, bool) {
-	if o == nil || o.Value == nil {
-		return nil, false
-	}
-	return o.Value, true
-}
-
-// HasValue returns a boolean if a field has been set.
-func (o *ProtobufAny) HasValue() bool {
-	if o != nil && o.Value != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given string and assigns it to the Value field.
-func (o *ProtobufAny) SetValue(v string) {
-	o.Value = &v
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *ProtobufAny) SetType(v string) {
+	o.Type = &v
 }
 
 func (o ProtobufAny) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TypeUrl != nil {
-		toSerialize["typeUrl"] = o.TypeUrl
-	}
-	if o.Value != nil {
-		toSerialize["value"] = o.Value
+	if o.Type != nil {
+		toSerialize["@type"] = o.Type
 	}
 	return json.Marshal(toSerialize)
 }
@@ -148,3 +112,5 @@ func (v *NullableProtobufAny) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

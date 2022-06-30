@@ -389,7 +389,7 @@ import (
 
 func main() {
     teamId := "teamId_example" // string | The team ID
-    body := *openapiclient.NewInviteRequest() // InviteRequest | 
+    body := *openapiclient.NewRequestInviteDetails() // RequestInviteDetails | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -419,7 +419,7 @@ Other parameters are passed through a pointer to a apiGenerateInviteRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**InviteRequest**](InviteRequest.md) |  | 
+ **body** | [**RequestInviteDetails**](RequestInviteDetails.md) |  | 
 
 ### Return type
 
@@ -873,7 +873,7 @@ import (
 func main() {
     teamId := "teamId_example" // string | 
     userId := "userId_example" // string | 
-    body := *openapiclient.NewMember() // Member | 
+    body := *openapiclient.NewMemberOfATeam() // MemberOfATeam | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -905,7 +905,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **body** | [**Member**](Member.md) |  | 
+ **body** | [**MemberOfATeam**](MemberOfATeam.md) |  | 
 
 ### Return type
 
@@ -947,7 +947,7 @@ import (
 
 func main() {
     teamId := "teamId_example" // string | 
-    body := *openapiclient.NewTeam() // Team | 
+    body := *openapiclient.NewATeam() // ATeam | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -977,7 +977,7 @@ Other parameters are passed through a pointer to a apiUpdateTeamRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**Team**](Team.md) |  | 
+ **body** | [**ATeam**](ATeam.md) |  | 
 
 ### Return type
 

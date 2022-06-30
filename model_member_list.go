@@ -3,7 +3,7 @@
  *
  * API to manage teams, members and tokens
  *
- * API version: 1.3.11 lucky-fremont
+ * API version: 1.3.13 bordering-jerilyn
  * Contact: dev@lab5e.com
  */
 
@@ -112,3 +112,5 @@ func (v *NullableMemberList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -291,7 +291,7 @@ import (
 
 func main() {
     token := "token_example" // string | The token  Use this in the `X-API-Token` header when using the API.
-    body := *openapiclient.NewToken() // Token | 
+    body := *openapiclient.NewAnAPIToken() // AnAPIToken | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -321,7 +321,7 @@ Other parameters are passed through a pointer to a apiUpdateTokenRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**Token**](Token.md) |  | 
+ **body** | [**AnAPIToken**](AnAPIToken.md) |  | 
 
 ### Return type
 
